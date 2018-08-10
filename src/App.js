@@ -19,24 +19,17 @@ class App extends React.Component {
 
   submitLoanPost = e => {
     axios
-    .post("https://script.google.com/macros/s/AKfycbwPGz6uQQS9IW33ASPYlcWaEtRMD8eDAK1ONg7lT2dREXpaSUYh/exec", 
-    {
-      income: 3000023,
-      expenses: 22123,
-      rate: 3.22,
-      noi: 20000,
-      address: {
-        street  : '1 Bacon Street',
-        city    : 'Brooklyn',
-        state   : 'NY',
-        county  : 'Kings County',
-        zip     : '11216'
-      },
-      postLimit : '3'
-    })
+    .post("https://script.google.com/macros/s/AKfycbwPGz6uQQS9IW33ASPYlcWaEtRMD8eDAK1ONg7lT2dREXpaSUYh/exec"
+    )
     .then(response => {
-      console.log(response);
-      const data = response.data.results
+      // console.log(response);
+      const data = response.data.terms;
+      console.log(data);
+      // const firstOne = data[0].NOI;
+      // this.setState({terms: firstOne })
+      setTimeout( () => {
+        // console.log(this.state.terms)
+      }, 100)
     })
     .catch( error => {
       console.log(error)
@@ -55,9 +48,12 @@ class App extends React.Component {
         {/* <input type="text" className="nameInput" onChange={this.inputChange} />
         <HelloYou name={this.state.name}/> */}
         <input className="submitLoanReq" type="submit" value="Send Request" onClick={this.submitLoanPost} />
+        {/* <p>{this.state.terms}</p> */}
       </div>
     );
   }
 }
 
 export default App;
+
+
