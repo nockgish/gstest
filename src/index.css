@@ -12,3 +12,22 @@ body {
   margin-top: 50px;
 }
 
+.submitLoanReq {
+  font-weight: bold;
+  font-size: 1.2vw;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 2vw;
+  margin-top: 50px;
+  color: #fff;
+  background-color: #000;
+  transition: 0.2s ease-out; 
+}
+
+.submitLoanReq:hover {
+  background-color: orangered;
+}
+
+.submitLoanReq:acitve {
+  background-color: maroon;
+}

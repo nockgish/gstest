@@ -47,14 +47,14 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
+          <h1>Loan Offers</h1>
         </header>
         {/* <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p> */}
-        <input type="text" className="nameInput" onChange={this.inputChange} />
-        <HelloYou name={this.state.name}/>
-          
-        <input type="submit" value="Send Request" onClick={this.submitLoanPost} />
+        {/* <input type="text" className="nameInput" onChange={this.inputChange} />
+        <HelloYou name={this.state.name}/> */}
+        <input className="submitLoanReq" type="submit" value="Send Request" onClick={this.submitLoanPost} />
       </div>
     );
   }
