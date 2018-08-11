@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      name: " "
+     
     }
   }
 
@@ -17,30 +17,31 @@ class App extends React.Component {
     this.setState({ name: e.target.value })
  }
 
-  submitLoanPost = e => {
+ submitLoanPost = e => {
+    console.log('anything at all');
     axios
-    .post("https://script.google.com/macros/s/AKfycbwPGz6uQQS9IW33ASPYlcWaEtRMD8eDAK1ONg7lT2dREXpaSUYh/exec"
+    .get("//newsapi.org/v2/everything?domains=wsj.com&apiKey=ecba291e2bf642f7898dd5cff6bc5310"
     )
     .then(response => {
-      // console.log(response);
-      const data = response.data.terms;
-      console.log(data);
-      // const firstOne = data[0].NOI;
-      // this.setState({terms: firstOne })
+      console.log(response);
+      const archIt = response.data.articles;
+      this.setState({thenews: archIt});
       setTimeout( () => {
-        // console.log(this.state.terms)
+        console.log(this.state.thenews[0]);
       }, 100)
     })
     .catch( error => {
       console.log(error)
     })
+
+
   }
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <h1>Loan Offers</h1>
+          <h1>Sample Text Header</h1>
         </header>
         {/* <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
@@ -48,7 +49,7 @@ class App extends React.Component {
         {/* <input type="text" className="nameInput" onChange={this.inputChange} />
         <HelloYou name={this.state.name}/> */}
         <input className="submitLoanReq" type="submit" value="Send Request" onClick={this.submitLoanPost} />
-        {/* <p>{this.state.terms}</p> */}
+        <p>{}</p>
       </div>
     );
   }
