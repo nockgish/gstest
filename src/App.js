@@ -71,17 +71,11 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <h1>Do you know the code for a newsAPI source?</h1>
-          <input className="enterSource" type="text" onChange={this.acceptInput} onKeyDown={this.acceptInput}/>
-        <p>{this.state.clientInput}</p>
-        <input className="submitLoanReq" type="submit" value="Send Request" onClick={this.submitLoanPost} />
+          <span>For Example: try <code>cnn</code> or <code>reuters</code> of <code>le-monde</code></span>
+          <input className="enterSource" type="text" onChange={this.acceptInput} onKeyDown={this.acceptInput} />
+          <p>{this.state.clientInput}</p>
+          <input className="submitLoanReq" type="submit" value="Send Request" onClick={this.submitLoanPost} />
         </header>
-        
-        {/* <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p> */}
-        {/* <input type="text" className="nameInput" onChange={this.inputChange} />
-        <HelloYou name={this.state.name}/> */}
-        {/* do a radio button selection */}
         {
           this.state.responseGood ?
             <div>
