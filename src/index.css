@@ -51,11 +51,32 @@ h2 {
   margin: 4rem 5rem 0.9rem 2rem;
 }
 
+
+.returns a {
+  color: #000;
+  text-decoration: none;
+}
+
+.returns a:hover {
+  color: rgb(0, 29, 29)
+}
+
 .author {
   margin: 0.5rem 0 0 2rem;
+  font-size: 12px;
 }
 
 .articleSummary {
   font-size: 12.5px;
   margin: 1.2rem 5rem 1.5rem 2rem;
+}
+
+.codeLink {
+  color: rgb(255, 81, 0);
+  text-decoration: none;
+  transition: 0.3s ease-out;
+}
+
+.codeLink:hover {
+  color: rgb(255, 115, 0)
 }
