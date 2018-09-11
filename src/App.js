@@ -6,14 +6,13 @@ import axios from 'axios';
 // import { networkFirst } from 'sw-toolbox';
 
 let newsSource;
-let articlesFrom;
 
 class App extends React.Component {
 
   constructor() {
     super();
     this.state = {
-
+       data: []
     }
   }
 
@@ -40,31 +39,22 @@ class App extends React.Component {
         console.log(response);
         const archIt = response.data.articles;
         
-        
+      
         console.log(archIt[0], archIt.length, archIt);
 
         
         this.setState({
           responseGood: true,
-          author1: archIt[0].author,
-          title1: archIt[0].title,
-          url1: archIt[0].url,
-          description1: archIt[0].description,
-          author2: archIt[1].author,
-          title2: archIt[1].title,
-          url2: archIt[1].url,
-          description2: archIt[1].description,
           data: archIt
         });
 
         console.log(this.state.data);
+        // articlesFrom = this.state.data.map(oneData => oneData.publishedAt);
 
-        
-
+        // console.log(articlesFrom);
+       
         setTimeout(() => {
-          // console.log(this.state.thenews[0]);
-          console.log(this.state.author1);
-          console.log(this.state.data)
+          console.log(this.state.data);
         }, 1500)
       })
       .catch(error => {
@@ -75,10 +65,15 @@ class App extends React.Component {
       })
   }
 
+  
+  
+
 
 
   render() {
+    let datas = this.state.data;
     return (
+      
       <div className="App">
         <header className="App-header">
           <h1>Do you know the <a className="codeLink" target="_blank" href="https://newsapi.org/sources">code</a> for a newsAPI source?</h1>
@@ -90,31 +85,15 @@ class App extends React.Component {
         {
           this.state.responseGood ?
             <div className="returns">
-
-              <a href={this.state.data[0].url}><h2>{this.state.data[0].title}</h2></a>
-              <p className="author">{this.state.data[0].author}</p>
-              <p className="articleSummary">{this.state.data[0].description}</p>
-              <a href={this.state.data[1].url}><h2>{this.state.data[1].title}</h2></a>
-              <p className="author">{this.state.data[1].author}</p>
-              <p className="articleSummary">{this.state.data[1].description}</p>
-              <a href={this.state.data[2].url}><h2>{this.state.data[2].title}</h2></a>
-              <p className="author">{this.state.data[2].author}</p>
-              <p className="articleSummary">{this.state.data[2].description}</p>
-              <a href={this.state.data[3].url}><h2>{this.state.data[3].title}</h2></a>
-              <p className="author">{this.state.data[3].author}</p>
-              <p className="articleSummary">{this.state.data[3].description}</p>
-              <a href={this.state.data[4].url}><h2>{this.state.data[4].title}</h2></a>
-              <p className="author">{this.state.data[4].author}</p>
-              <p className="articleSummary">{this.state.data[4].description}</p>
-              <a href={this.state.data[5].url}><h2>{this.state.data[5].title}</h2></a>
-              <p className="author">{this.state.data[5].author}</p>
-              <p className="articleSummary">{this.state.data[5].description}</p>
+            {datas.map(oneData => <div key={oneData.publishedAt + Math.random()}>
+            <a href={oneData.url}><h2>{oneData.title}</h2></a>
+            <p className="author">{oneData.author}</p>
+            <p className="articleSummary">{oneData.description}</p>
+            </div>)}
             </div>
             : this.state.responseGood ? <p>nothing yet</p>
             : this.state.responseGood === undefined ? null : <p>nothing available</p>
         }
-      <div>
-      </div>
       </div>
     );
   }
