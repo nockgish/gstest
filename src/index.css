@@ -24,7 +24,7 @@ h1 + span {
 
 .submitLoanReq {
   font-weight: bold;
-  font-size: 1.2vw;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   padding: 2vw;
@@ -52,13 +52,15 @@ h2 {
 }
 
 
-.returns a {
+.returns a, .returns h2 {
   color: #000;
   text-decoration: none;
+  transition: 0.2s ease;
+  background-color: #fff;
 }
 
-.returns a:hover {
-  color: rgb(0, 29, 29)
+.returns h2:hover {
+  color: rgb(252, 81, 1);
 }
 
 .author {
@@ -69,6 +71,11 @@ h2 {
 .articleSummary {
   font-size: 12.5px;
   margin: 1.2rem 5rem 1.5rem 2rem;
+}
+
+.oneArticle {
+  border-left: 5px solid rgb(252, 81, 0);
+  padding: 0 0 0 20px;
 }
 
 .codeLink {

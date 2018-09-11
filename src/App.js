@@ -85,8 +85,8 @@ class App extends React.Component {
         {
           this.state.responseGood ?
             <div className="returns">
-            {datas.map(oneData => <div key={oneData.publishedAt + Math.random()}>
-            <a href={oneData.url}><h2>{oneData.title}</h2></a>
+            {datas.map(oneData => <div className="oneArticle" key={oneData.publishedAt + Math.random()}>
+            <a href={oneData.url} target="_blank"><h2>{oneData.title}</h2></a>
             <p className="author">{oneData.author}</p>
             <p className="articleSummary">{oneData.description}</p>
             </div>)}
