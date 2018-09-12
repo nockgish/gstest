@@ -49,9 +49,6 @@ class App extends React.Component {
         });
 
         console.log(this.state.data);
-        // articlesFrom = this.state.data.map(oneData => oneData.publishedAt);
-
-        // console.log(articlesFrom);
        
         setTimeout(() => {
           console.log(this.state.data);
@@ -79,17 +76,23 @@ class App extends React.Component {
           <h1>Do you know the <a className="codeLink" target="_blank" href="https://newsapi.org/sources">code</a> for a newsAPI source?</h1>
           <span>For Example: try <code>cnn</code> or <code>reuters</code> or <code>le-monde</code></span>
           <input className="enterSource" type="text" onChange={this.acceptInput} onKeyDown={this.acceptInput} />
+          {/* this button would be calling an action: (type: 'CHANGE_NEWS_SOURCE') */}
           <p>{this.state.clientInput}</p>
           <input className="submitLoanReq" type="submit" value="Send Request" onClick={this.submitLoanPost} />
         </header>
         {
           this.state.responseGood ?
             <div className="returns">
-            {datas.map(oneData => <div className="oneArticle" key={oneData.publishedAt + Math.random()}>
-            <a href={oneData.url} target="_blank"><h2>{oneData.title}</h2></a>
-            <p className="author">{oneData.author}</p>
-            <p className="articleSummary">{oneData.description}</p>
-            </div>)}
+            {
+              datas.map(
+              oneData => 
+              <div className="oneArticle" key={oneData.publishedAt + Math.random()}>
+                <a href={oneData.url} target="_blank"><h2>{oneData.title}</h2></a>
+                <p className="author">{oneData.author}</p>
+                <p className="articleSummary">{oneData.description}</p>
+              </div>
+              )
+            }
             </div>
             : this.state.responseGood ? <p>nothing yet</p>
             : this.state.responseGood === undefined ? null : <p>nothing available</p>
