@@ -62,11 +62,6 @@ class App extends React.Component {
       })
   }
 
-  
-  
-
-
-
   render() {
     let datas = this.state.data;
     return (
@@ -78,7 +73,7 @@ class App extends React.Component {
           <input className="enterSource" type="text" onChange={this.acceptInput} onKeyDown={this.acceptInput} />
           {/* this button would be calling an action: (type: 'CHANGE_NEWS_SOURCE') */}
           <p>{this.state.clientInput}</p>
-          <input className="submitLoanReq" type="submit" value="Send Request" onClick={this.submitLoanPost} />
+          <input className="submitLoanReq" type="submit" value="Send Request ►" onClick={this.submitLoanPost} />
         </header>
         {
           this.state.responseGood ?

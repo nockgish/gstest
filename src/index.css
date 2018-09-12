@@ -51,7 +51,10 @@ h2 {
   margin: 4rem 5rem 0.9rem 2rem;
 }
 
-
+.returns {
+  max-width: 800px;
+  margin: auto;
+}
 .returns a, .returns h2 {
   color: #000;
   text-decoration: none;
@@ -86,4 +89,13 @@ h2 {
 
 .codeLink:hover {
   color: rgb(255, 115, 0)
+}
+
+.enterSource {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.enterSource ~ p {
+  font-size: 1.5rem
 }
