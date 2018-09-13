@@ -12,7 +12,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-       data: []
+      data: []
     }
   }
 
@@ -38,11 +38,11 @@ class App extends React.Component {
       .then(response => {
         console.log(response);
         const archIt = response.data.articles;
-        
-      
+
+
         console.log(archIt[0], archIt.length, archIt);
 
-        
+
         this.setState({
           responseGood: true,
           data: archIt,
@@ -50,7 +50,7 @@ class App extends React.Component {
         });
 
         console.log(this.state.data, this.state.name);
-       
+
         setTimeout(() => {
           console.log(this.state.data);
         }, 1500)
@@ -67,7 +67,7 @@ class App extends React.Component {
     let datas = this.state.data;
     console.log(datas[0])
     return (
-      
+
       <div className="App">
         <header className="App-header">
           <h1>Do you know the <a className="codeLink" target="_blank" href="https://newsapi.org/sources">code</a> for a newsAPI source?</h1>
@@ -77,34 +77,34 @@ class App extends React.Component {
           <p>{this.state.clientInput}</p>
           <input className="submitLoanReq" type="submit" value="get the news ►" onClick={this.submitLoanPost} />
         </header>
-         <HelloYou newsSource={this.state.name} />
+        <HelloYou newsSource={this.state.name} />
         {
           this.state.responseGood ?
             <div className="returns">
-            {
-              datas.map(
-              oneData => 
-              <div className="oneArticle" key={oneData.publishedAt + Math.random()}>
-                <a href={oneData.url} target="_blank" rel="noopener noreferrer"><h2>{oneData.title}</h2></a>
-                {
-                  oneData.author ? 
-                <p className="author">by {oneData.author}</p> : ''
-                }
-                <p className="time">published: {oneData.publishedAt}</p>
-                <p className="articleSummary">{oneData.description}</p>
-                {
-                  oneData.urlToImage ? 
-                <img src={oneData.urlToImage} alt="image for article"/> : ''
-                }
-              </div>
-              )
-            }
+              {
+                datas.map(
+                  oneData =>
+                    <div className="oneArticle" key={oneData.publishedAt + Math.random()}>
+                      <a href={oneData.url} target="_blank" rel="noopener noreferrer"><h2>{oneData.title}</h2></a>
+                      {
+                        oneData.author ?
+                          <p className="author">by {oneData.author}</p> : ''
+                      }
+                      <p className="time">published: {oneData.publishedAt}</p>
+                      <p className="articleSummary">{oneData.description}</p>
+                      {
+                        oneData.urlToImage ?
+                          <img src={oneData.urlToImage} alt="image for article" /> : ''
+                      }
+                    </div>
+                )
+              }
             </div>
             : this.state.responseGood ? <p>nothing yet</p>
-            : this.state.responseGood === undefined ? null : <p>nothing available</p>
+              : this.state.responseGood === undefined ? null : <p>nothing available</p>
         }
 
-        
+
       </div>
     );
   }
