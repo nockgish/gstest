@@ -45,10 +45,11 @@ class App extends React.Component {
         
         this.setState({
           responseGood: true,
-          data: archIt
+          data: archIt,
+          name: archIt[0].source.name
         });
 
-        console.log(this.state.data);
+        console.log(this.state.data, this.state.name);
        
         setTimeout(() => {
           console.log(this.state.data);
@@ -64,6 +65,7 @@ class App extends React.Component {
 
   render() {
     let datas = this.state.data;
+    console.log(datas[0])
     return (
       
       <div className="App">
@@ -73,8 +75,9 @@ class App extends React.Component {
           <input className="enterSource" type="text" onChange={this.acceptInput} onKeyDown={this.acceptInput} />
           {/* this button would be calling an action: (type: 'CHANGE_NEWS_SOURCE') */}
           <p>{this.state.clientInput}</p>
-          <input className="submitLoanReq" type="submit" value="Send Request ►" onClick={this.submitLoanPost} />
+          <input className="submitLoanReq" type="submit" value="get the news ►" onClick={this.submitLoanPost} />
         </header>
+         <HelloYou newsSource={this.state.name} />
         {
           this.state.responseGood ?
             <div className="returns">
@@ -82,9 +85,17 @@ class App extends React.Component {
               datas.map(
               oneData => 
               <div className="oneArticle" key={oneData.publishedAt + Math.random()}>
-                <a href={oneData.url} target="_blank"><h2>{oneData.title}</h2></a>
-                <p className="author">{oneData.author}</p>
+                <a href={oneData.url} target="_blank" rel="noopener noreferrer"><h2>{oneData.title}</h2></a>
+                {
+                  oneData.author ? 
+                <p className="author">by {oneData.author}</p> : ''
+                }
+                <p className="time">published: {oneData.publishedAt}</p>
                 <p className="articleSummary">{oneData.description}</p>
+                {
+                  oneData.urlToImage ? 
+                <img src={oneData.urlToImage} alt="image for article"/> : ''
+                }
               </div>
               )
             }
@@ -92,6 +103,8 @@ class App extends React.Component {
             : this.state.responseGood ? <p>nothing yet</p>
             : this.state.responseGood === undefined ? null : <p>nothing available</p>
         }
+
+        
       </div>
     );
   }

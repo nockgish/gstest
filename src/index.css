@@ -11,7 +11,22 @@ h1 + span {
 }
 
 .hiName {
-  color: green;
+  color: #000;
+    padding: 2rem 0 0 0;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hiName span {
+  display: block;
+  font-weight: bold;
+  font-size: 4.5rem;
+  padding: 1rem 0 1rem 0;
+  font-family: serif;
+  text-transform: lowercase;
+  font-style: italic;
+  letter-spacing: -2.5px;
 }
 
 .nameInput {
@@ -28,10 +43,10 @@ h1 + span {
   text-transform: uppercase;
   letter-spacing: 2px;
   padding: 2vw;
-  margin-top: 50px;
   color: #fff;
   background-color: #000;
   transition: 0.2s ease-out; 
+  margin: 2px 0 10px 0;
 }
 
 .submitLoanReq:hover {
@@ -53,13 +68,14 @@ h2 {
 
 .returns {
   max-width: 800px;
-  margin: auto;
+  margin: 0 auto 2rem auto;
 }
 .returns a, .returns h2 {
   color: #000;
   text-decoration: none;
-  transition: 0.2s ease;
+  transition: 0.2s ease-in-out;
   background-color: #fff;
+  padding: 2rem 0 0 0
 }
 
 .returns h2:hover {
@@ -71,6 +87,12 @@ h2 {
   font-size: 12px;
 }
 
+.time {
+  font-size: 0.6rem;
+  text-align: left;
+  padding: 0 0 0 2rem;
+}
+
 .articleSummary {
   font-size: 12.5px;
   margin: 1.2rem 5rem 1.5rem 2rem;
@@ -79,16 +101,45 @@ h2 {
 .oneArticle {
   border-left: 5px solid rgb(252, 81, 0);
   padding: 0 0 0 20px;
+  margin: 0 0 6rem 0;
+}
+
+
+
+.oneArticle img {
+  width: 50vw;
+  display: inherit;
+  max-width: 496px;
+  margin: 4rem 0 0 2rem;
+  box-shadow: 0 0 9px rgba(0, 0, 0, 0.5882352941176471);
+  border-radius: 3px;
+  filter: color(0.8);
+  transition: 0.2s ease-in-out;
+  clip-path: inset(34% 0 32% 0);
+  transform: translate3d(0, -10px, 0);
+  opacity: 0.2;
+}
+
+.oneArticle:hover img {
+  filter: grayscale(0);
+  clip-path: inset(0% 0 0% 0);
+  transform: translate3d(0, 0px, 0);
+  opacity: 1;
 }
 
 .codeLink {
   color: rgb(255, 81, 0);
   text-decoration: none;
   transition: 0.3s ease-out;
+  letter-spacing: -2px;
+  font-style: italic;
+  font-family: serif;
+  font-size: 2.5rem;
 }
 
 .codeLink:hover {
-  color: rgb(255, 115, 0)
+  color: rgb(255, 115, 0);
+  text-shadow: 0 0 10px rgba(255, 176, 131, 0.596)
 }
 
 .enterSource {
@@ -97,5 +148,7 @@ h2 {
 }
 
 .enterSource ~ p {
-  font-size: 1.5rem
+  font-size: 1rem;
+    margin: 1rem;
+    font-family: monospace;
 }

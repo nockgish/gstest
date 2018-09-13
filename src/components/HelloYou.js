@@ -9,7 +9,7 @@ class HelloYou extends React.Component {
 render() {
     return(
         <div>
-          <p className="hiName">Oh Hi There, its you:  <span>{this.props.name}</span></p>
+          <p className="hiName">Recent News From:  <span>{this.props.newsSource}</span></p>
         </div>
     )
 }
