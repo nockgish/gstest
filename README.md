@@ -1,3 +1,3 @@
-run in terminal:
-yarn install
+run in terminal: <br>
+yarn install <br>
 yarn start 
