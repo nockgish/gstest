@@ -16,6 +16,7 @@ h1 + span {
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
+    text-align: center;
 }
 
 .hiName span {
@@ -35,6 +36,7 @@ h1 + span {
 
 .App-header {
   height: initial !important;
+  text-align: center; 
 }
 
 .submitLoanReq {
@@ -99,31 +101,44 @@ h2 {
 }
 
 .oneArticle {
-  border-left: 5px solid rgb(252, 81, 0);
+  /* border-left: 5px solid rgb(252, 81, 0); */
   padding: 0 0 0 20px;
   margin: 0 0 6rem 0;
 }
 
+.imgSq {
+  width: 25em;
+  height: 14em;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  -webkit-transition: 0.5s ease-out;
+  -o-transition: 0.5s ease-out;
+  transition: 0.5s ease-out;
+  background-position: center center;
+  margin: 2em 0 0 2em;
+  transform: translate3d(0,0,0)
+}
 
+.imgSq:hover {
+  background-size: 115%;
+  transform: translate3d(0,0,0)
+}
 
 .oneArticle img {
   width: 50vw;
   display: inherit;
   max-width: 496px;
-  margin: 4rem 0 0 2rem;
+  /* margin: 4rem 0 0 2rem; */
   box-shadow: 0 0 9px rgba(0, 0, 0, 0.5882352941176471);
   border-radius: 3px;
-  filter: color(0.8);
-  transition: 0.2s ease-in-out;
-  clip-path: inset(34% 0 32% 0);
-  transform: translate3d(0, -10px, 0);
-  opacity: 0.2;
+  transition: 0.35s ease-in-out;
+  transform: translate3d(10px, -4px, 0) scale(0.9);
+  opacity: 0.7;
 }
 
 .oneArticle:hover img {
-  filter: grayscale(0);
   clip-path: inset(0% 0 0% 0);
-  transform: translate3d(0, 0px, 0);
+  transform: translate3d(30px, 0px, 0) scale(1);
   opacity: 1;
 }
 
@@ -151,4 +166,12 @@ h2 {
   font-size: 1rem;
     margin: 1rem;
     font-family: monospace;
+}
+
+.nothingA {
+    text-align: center;
+    font-size: 31px;
+    font-family: serif;
+    font-style: italic;
+    font-weight: bold;
 }

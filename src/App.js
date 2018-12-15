@@ -63,6 +63,18 @@ class App extends React.Component {
       })
   }
 
+  // focusMethod = e => {
+  //     //  console.log(e);
+  //      if(e.key == 'Enter'){
+  //       console.log(e)
+  //     }
+  // }
+
+  listenEnter = e => {
+    console.log('hello', e);
+    e.key === "Enter" ? this.submitLoanPost() : ''
+  }
+
   render() {
     let datas = this.state.data;
     console.log(datas[0])
@@ -72,7 +84,7 @@ class App extends React.Component {
         <header className="App-header">
           <h1>Do you know the <a className="codeLink" target="_blank" href="https://newsapi.org/sources">code</a> for a newsAPI source?</h1>
           <span>For Example: try <code>cnn</code> or <code>reuters</code> or <code>le-monde</code></span>
-          <input className="enterSource" type="text" onChange={this.acceptInput} onKeyDown={this.acceptInput} />
+          <input className="enterSource" type="text" onKeyPress={this.listenEnter} onChange={this.acceptInput} onKeyDown={this.acceptInput} />
           {/* this button would be calling an action: (type: 'CHANGE_NEWS_SOURCE') */}
           <p>{this.state.clientInput}</p>
           <input className="submitLoanReq" type="submit" value="get the news ►" onClick={this.submitLoanPost} />
@@ -92,16 +104,21 @@ class App extends React.Component {
                       }
                       <p className="time">published: {oneData.publishedAt}</p>
                       <p className="articleSummary">{oneData.description}</p>
-                      {
+                      {/* {
                         oneData.urlToImage ?
                           <img src={oneData.urlToImage} alt="image for article" /> : ''
+                      } */}
+                      {
+                      oneData.urlToImage ? <a href={oneData.url} target="_blank" rel="noopener noreferrer">
+                                           <div className="imgSq" style={{backgroundImage: `url(${oneData.urlToImage})`}}>
+                                           </div></a> : ''
                       }
                     </div>
-                )
+                        )
               }
             </div>
             : this.state.responseGood ? <p>nothing yet</p>
-              : this.state.responseGood === undefined ? null : <p>nothing available</p>
+            : this.state.responseGood === undefined ? null : <p className="nothingA">nothing available</p>
         }
 
 
